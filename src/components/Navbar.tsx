@@ -117,7 +117,7 @@ export default function Navbar() {
               <a
                 href="#menu"
                 onClick={(e) => handleClick(e, "#menu")}
-                className="rounded-md bg-[#F59E0B] px-5 py-2 text-sm font-bold uppercase tracking-wider text-black transition-all hover:bg-[#D97706] hover:shadow-lg hover:shadow-[#F59E0B]/20"
+                className="rounded-md bg-[#F59E0B] px-6 py-2.5 text-sm font-bold uppercase tracking-wider text-black transition-all hover:bg-[#D97706] hover:shadow-lg hover:shadow-[#F59E0B]/20"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 Pedir
@@ -178,7 +178,7 @@ export default function Navbar() {
                 <a
                   href="#menu"
                   onClick={(e) => handleClick(e, "#menu")}
-                  className="mt-4 block w-full rounded-md bg-[#F59E0B] py-3 text-center text-lg font-bold uppercase tracking-wider text-black transition-all hover:bg-[#D97706]"
+                  className="mt-6 block w-full rounded-lg bg-[#F59E0B] py-4 text-center text-lg font-bold uppercase tracking-wider text-black transition-all hover:bg-[#D97706]"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Pedir

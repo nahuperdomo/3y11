@@ -143,8 +143,8 @@ export default function MenuSection() {
                   >
                     $U {featuredItem.price.toLocaleString("es-UY")}
                   </span>
-                  <span className="text-xs text-gray-500">
-                    Tocá para ver más
+                  <span className="text-sm text-gray-500">
+                    Tocá para ver más →
                   </span>
                 </div>
               </div>
@@ -158,11 +158,11 @@ export default function MenuSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mb-6"
+          className="mb-8"
         >
           <div className="relative">
             <Search
-              size={18}
+              size={20}
               className="absolute top-1/2 left-4 -translate-y-1/2 text-gray-500"
             />
             <input
@@ -170,12 +170,12 @@ export default function MenuSection() {
               placeholder="¿Qué se te antoja hoy?"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-lg border border-white/10 bg-[#1A1A1A] py-3 pr-10 pl-11 text-white placeholder:text-gray-500 focus:border-[#F59E0B]/50 focus:outline-none focus:ring-1 focus:ring-[#F59E0B]/50"
+              className="w-full rounded-xl border border-white/10 bg-[#1A1A1A] py-4 pr-12 pl-12 text-base text-white placeholder:text-gray-500 focus:border-[#F59E0B]/50 focus:outline-none focus:ring-1 focus:ring-[#F59E0B]/50"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
-                className="absolute top-1/2 right-3 -translate-y-1/2 text-gray-500 hover:text-white"
+                className="absolute top-1/2 right-4 -translate-y-1/2 p-1 text-gray-500 hover:text-white"
                 aria-label="Limpiar búsqueda"
               >
                 <X size={18} />
@@ -191,7 +191,7 @@ export default function MenuSection() {
                 onClick={() =>
                   setActiveFilter(activeFilter === f.label ? null : f.label)
                 }
-                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
                   activeFilter === f.label
                     ? "border-[#F59E0B] bg-[#F59E0B]/10 text-[#F59E0B]"
                     : "border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
@@ -219,7 +219,7 @@ export default function MenuSection() {
                   setActiveCategory(cat.id);
                   setActiveFilter(null);
                 }}
-                className={`shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition-all ${
+                className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-medium transition-all ${
                   activeCategory === cat.id
                     ? "border-[#F59E0B] bg-[#F59E0B] text-black"
                     : "border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
@@ -244,7 +244,7 @@ export default function MenuSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.15 }}
-              className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3"
+              className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3"
             >
               {activeItems.length === 0 ? (
                 <div className="col-span-full py-12 text-center">
@@ -253,7 +253,7 @@ export default function MenuSection() {
                   </p>
                   <button
                     onClick={clearFilters}
-                    className="rounded-md bg-[#F59E0B] px-6 py-2.5 text-sm font-bold uppercase tracking-wider text-black transition-all hover:bg-[#D97706]"
+                    className="rounded-md bg-[#F59E0B] px-8 py-3 text-sm font-bold uppercase tracking-wider text-black transition-all hover:bg-[#D97706]"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     Ver todo el menú
@@ -286,12 +286,12 @@ export default function MenuSection() {
                       {/* Badges */}
                       <div className="absolute top-2 right-2 flex flex-col gap-1 sm:top-3 sm:right-3 sm:gap-1.5">
                         {item.recommended && (
-                          <span className="flex items-center gap-1 rounded-full bg-[#F59E0B]/90 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-black sm:px-2 sm:text-[10px]">
+                          <span className="flex items-center gap-1 rounded-full bg-[#F59E0B]/90 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-black sm:text-xs">
                             <Star size={10} fill="currentColor" /> <span className="hidden sm:inline">Recomendado</span>
                           </span>
                         )}
                         {item.isNew && (
-                          <span className="flex items-center gap-1 rounded-full bg-[#DC2626]/90 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white sm:px-2 sm:text-[10px]">
+                          <span className="flex items-center gap-1 rounded-full bg-[#DC2626]/90 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white sm:text-xs">
                             <Sparkles size={10} /> Nuevo
                           </span>
                         )}
@@ -299,14 +299,14 @@ export default function MenuSection() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-3 sm:p-4">
+                    <div className="p-4">
                       <h3
-                        className="mb-1 text-sm font-bold uppercase tracking-wide text-white sm:text-base"
+                        className="mb-1 text-base font-bold uppercase tracking-wide text-white"
                         style={{ fontFamily: "var(--font-display)" }}
                       >
                         {item.name}
                       </h3>
-                      <p className="mb-2 line-clamp-2 text-[11px] text-gray-500 sm:mb-3 sm:text-xs">
+                      <p className="mb-3 line-clamp-2 text-xs text-gray-500">
                         {item.description}
                       </p>
                       <div className="flex items-center justify-between">

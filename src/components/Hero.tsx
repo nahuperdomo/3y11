@@ -81,7 +81,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="flex w-full flex-col items-center justify-center gap-4 px-4 sm:w-auto sm:flex-row sm:px-0"
         >
           <a
             href="#menu"
@@ -89,7 +89,7 @@ export default function Hero() {
               e.preventDefault();
               scrollTo("#menu");
             }}
-            className="group relative overflow-hidden rounded-md bg-[#F59E0B] px-8 py-3 text-base font-bold uppercase tracking-wider text-black transition-all hover:bg-[#D97706] hover:shadow-lg hover:shadow-[#F59E0B]/25 sm:text-lg"
+            className="group relative w-full overflow-hidden rounded-md bg-[#F59E0B] px-8 py-3.5 text-base font-bold uppercase tracking-wider text-black transition-all hover:bg-[#D97706] hover:shadow-lg hover:shadow-[#F59E0B]/25 sm:w-auto sm:text-lg"
             style={{ fontFamily: "var(--font-display)" }}
           >
             <span className="relative z-10">Ver Menú</span>
@@ -98,7 +98,7 @@ export default function Hero() {
             href={GOOGLE_MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-md border border-white/20 bg-white/5 px-8 py-3 text-base font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10 sm:text-lg"
+            className="w-full rounded-md border border-white/20 bg-white/5 px-8 py-3.5 text-base font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10 sm:w-auto sm:text-lg"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Cómo llegar

@@ -171,7 +171,7 @@ export default function Location() {
             </div>
 
             {/* Features */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
               {features.map((feat) => (
                 <div
                   key={feat.label}
