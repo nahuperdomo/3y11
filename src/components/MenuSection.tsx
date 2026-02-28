@@ -158,7 +158,7 @@ export default function MenuSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mx-auto mb-6 max-w-2xl"
+          className="mb-6"
         >
           <div className="relative">
             <Search
