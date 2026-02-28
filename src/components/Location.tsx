@@ -93,11 +93,11 @@ export default function Location() {
                 </h3>
               </div>
               <p className="text-gray-400">
-                Jose Batlle y Ordonez
+                Ruta 3 Km. 92,000
                 <br />
-                80000 San Jose
+                Gral José G. Artigas 35
                 <br />
-                Departamento de San Jose, Uruguay
+                80000 San José de Mayo, Departamento de San José
               </p>
               <a
                 href={GOOGLE_MAPS_URL}
