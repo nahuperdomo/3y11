@@ -18,7 +18,7 @@ export default function TopBanner() {
   if (!visible) return null;
 
   return (
-    <div className="relative z-50 bg-gradient-to-r from-[#D97706] to-[#F59E0B] px-4 py-2 text-center text-sm font-medium text-black">
+    <div className="relative z-50 bg-gradient-to-r from-[#D97706] to-[#F59E0B] px-4 py-3 text-center text-sm font-medium text-black">
       <span className="inline-block">
         🛵 Hacemos pedidos para llevar &mdash;{" "}
         <a

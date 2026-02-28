@@ -103,9 +103,9 @@ export default function Location() {
                 href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block text-sm font-medium text-[#F59E0B] hover:underline"
+                className="mt-4 inline-block rounded-lg border border-[#F59E0B]/30 bg-[#F59E0B]/10 px-5 py-2.5 text-sm font-bold text-[#F59E0B] transition-all hover:bg-[#F59E0B]/20"
               >
-                Abrir en Google Maps &rarr;
+                Abrir en Google Maps →
               </a>
             </div>
 

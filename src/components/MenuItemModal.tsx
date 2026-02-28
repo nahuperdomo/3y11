@@ -92,7 +92,7 @@ export default function MenuItemModal({ item, onClose }: Props) {
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
+              className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
               aria-label="Cerrar"
             >
               <X size={18} />
@@ -116,7 +116,7 @@ export default function MenuItemModal({ item, onClose }: Props) {
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium ${
+                      className={`flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-sm font-medium ${
                         tagColors[tag] || "bg-gray-800 text-gray-400 border-gray-700"
                       }`}
                     >
@@ -156,19 +156,19 @@ export default function MenuItemModal({ item, onClose }: Props) {
               )}
 
               {/* Quantity selector */}
-              <div className="mb-4 flex items-center justify-between rounded-lg border border-white/10 bg-[#0A0A0A] p-3">
-                <span className="text-sm font-medium text-gray-300">Cantidad</span>
-                <div className="flex items-center gap-3">
+              <div className="mb-5 flex items-center justify-between rounded-xl border border-white/10 bg-[#0A0A0A] p-4">
+                <span className="text-base font-medium text-gray-300">Cantidad</span>
+                <div className="flex items-center gap-4">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     disabled={quantity <= 1}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:border-[#F59E0B] hover:text-[#F59E0B] disabled:opacity-30 disabled:hover:border-white/10 disabled:hover:text-white"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:border-[#F59E0B] hover:text-[#F59E0B] disabled:opacity-30 disabled:hover:border-white/10 disabled:hover:text-white"
                     aria-label="Reducir cantidad"
                   >
-                    <Minus size={14} />
+                    <Minus size={16} />
                   </button>
                   <span
-                    className="w-6 text-center text-lg font-bold text-white"
+                    className="w-8 text-center text-xl font-bold text-white"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     {quantity}
@@ -176,10 +176,10 @@ export default function MenuItemModal({ item, onClose }: Props) {
                   <button
                     onClick={() => setQuantity(Math.min(10, quantity + 1))}
                     disabled={quantity >= 10}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:border-[#F59E0B] hover:text-[#F59E0B] disabled:opacity-30 disabled:hover:border-white/10 disabled:hover:text-white"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:border-[#F59E0B] hover:text-[#F59E0B] disabled:opacity-30 disabled:hover:border-white/10 disabled:hover:text-white"
                     aria-label="Aumentar cantidad"
                   >
-                    <Plus size={14} />
+                    <Plus size={16} />
                   </button>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export default function MenuItemModal({ item, onClose }: Props) {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] py-3.5 text-base font-bold text-white transition-all hover:bg-[#20BD5A] hover:shadow-lg hover:shadow-[#25D366]/20"
+                className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#25D366] py-4 text-lg font-bold text-white transition-all hover:bg-[#20BD5A] hover:shadow-lg hover:shadow-[#25D366]/20"
               >
                 <MessageCircle size={20} fill="white" />
                 Pedir por WhatsApp
