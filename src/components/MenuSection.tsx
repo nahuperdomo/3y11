@@ -158,7 +158,7 @@ export default function MenuSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mb-6"
+          className="mx-auto mb-6 max-w-2xl"
         >
           <div className="relative">
             <Search
@@ -184,7 +184,7 @@ export default function MenuSection() {
           </div>
 
           {/* Quick filters */}
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="mt-3 flex flex-wrap justify-center gap-2">
             {quickFilters.map((f) => (
               <button
                 key={f.label}
@@ -207,7 +207,7 @@ export default function MenuSection() {
         <div className="relative mb-8">
           <div
             ref={tabsRef}
-            className={`scrollbar-hide flex gap-2 overflow-x-auto pb-2 transition-opacity ${
+            className={`scrollbar-hide flex justify-center gap-2 overflow-x-auto pb-2 transition-opacity ${
               searchQuery ? "pointer-events-none opacity-40" : "opacity-100"
             }`}
           >

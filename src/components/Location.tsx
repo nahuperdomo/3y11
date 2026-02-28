@@ -42,7 +42,7 @@ export default function Location() {
             className="mb-3 text-4xl font-bold uppercase tracking-wider text-white sm:text-5xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Encontranos <span className="text-[#F59E0B]">aca</span>
+            Encontranos <span className="text-[#F59E0B]">acá</span>
           </h2>
           <p className="text-gray-400">
             Tu próxima parada favorita en la ruta
