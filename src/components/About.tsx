@@ -67,6 +67,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-center lg:text-left"
           >
             <h2
               className="mb-6 text-4xl font-bold uppercase tracking-wider text-white sm:text-5xl"
