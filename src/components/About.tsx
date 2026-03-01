@@ -80,7 +80,7 @@ export default function About() {
             <p className="mb-4 text-base leading-relaxed text-gray-400 sm:text-lg">
               Tresonce nació con una idea simple pero ambiciosa: demostrar que una
               estación de servicio puede ser un destino gastronómico. No somos una parada
-              más. Somos <strong className="text-white">EL destino</strong>.
+              más. Somos <strong className="text-white">EL DESTINO</strong>.
             </p>
             <p className="mb-4 text-base leading-relaxed text-gray-400 sm:text-lg">
               Cada plato sale de nuestra cocina con la misma pasión con la que un buen
