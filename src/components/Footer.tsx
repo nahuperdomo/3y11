@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Instagram, MessageCircle } from "lucide-react";
 import { WHATSAPP_NUMBER, INSTAGRAM_URL } from "@/lib/constants";
 
@@ -28,20 +29,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 text-center">
           {/* Logo */}
-          <div>
-            <span
-              className="text-2xl font-bold uppercase tracking-widest text-[#F59E0B]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              CAFFE{" "}
-            </span>
-            <span
-              className="text-2xl font-bold uppercase tracking-widest text-white"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              3-11
-            </span>
-          </div>
+          <Image
+            src="/logo3y11.jpg"
+            alt="Tresonce"
+            width={64}
+            height={64}
+            className="h-16 w-16 rounded-full"
+          />
 
           {/* Links */}
           <nav className="flex flex-wrap items-center justify-center gap-6">
@@ -76,10 +70,10 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="flex flex-col items-center gap-1 text-xs text-gray-700">
-            <p>&copy; {new Date().getFullYear()} CAFFE 3-11. Todos los derechos reservados.</p>
+            <p>&copy; {new Date().getFullYear()} Tresonce. Todos los derechos reservados.</p>
             <p>
               Desarrollado por{" "}
-              <span className="text-gray-500">CAFFE 3-11</span>
+              <span className="text-gray-500">Tresonce</span>
             </p>
           </div>
         </div>

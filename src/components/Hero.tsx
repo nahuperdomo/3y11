@@ -14,16 +14,15 @@ export default function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background image with next/image for LCP optimization */}
       <Image
-        src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920&h=1080&fit=crop"
-        alt="Interior del restaurante CAFFE 3-11"
+        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&h=1080&fit=crop"
+        alt="Interior del restaurante Tresonce"
         fill
         priority
         className="object-cover object-center"
         sizes="100vw"
       />
       {/* Overlays */}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/40" />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.95) 100%)" }} />
 
       {/* Content — compressed delays: 0.1→0.6s */}
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
@@ -34,11 +33,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
         >
           <h1 style={{ fontFamily: "var(--font-display)" }}>
-            <span className="glow-amber mb-2 block text-6xl font-bold uppercase tracking-widest text-[#F59E0B] sm:text-7xl md:text-8xl lg:text-9xl">
-              CAFFE
-            </span>
-            <span className="mb-6 block text-5xl font-bold uppercase tracking-[0.3em] text-white sm:text-6xl md:text-7xl lg:text-8xl">
-              3-11
+            <span className="glow-amber mb-6 block text-6xl font-bold uppercase tracking-widest text-[#F59E0B] sm:text-7xl md:text-8xl lg:text-9xl">
+              Tresonce
             </span>
           </h1>
         </motion.div>
@@ -51,7 +47,7 @@ export default function Hero() {
           className="glow-amber-sm mb-3 text-lg font-medium uppercase tracking-[0.2em] text-[#F59E0B] sm:text-xl md:text-2xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          La Estación más Rock&apos;n Roll del Planeta
+          La mejor estación de servicio del Uruguay
         </motion.p>
 
         {/* Subtitle */}
@@ -62,7 +58,7 @@ export default function Hero() {
           className="mx-auto mb-6 max-w-lg text-base text-gray-300 sm:text-lg"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Donde la ruta, el rock y la gastronomía artesanal se encuentran
+          Tenemos y sentimos pasión por los detalles
         </motion.p>
 
         {/* Location badge */}

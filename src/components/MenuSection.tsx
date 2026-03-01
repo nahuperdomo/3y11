@@ -152,7 +152,7 @@ export default function MenuSection() {
           </button>
         </motion.div>
 
-        {/* Search bar */}
+        {/* Search bar — MEJORA 7 */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -170,7 +170,7 @@ export default function MenuSection() {
               placeholder="¿Qué se te antoja hoy?"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-white/10 bg-[#1A1A1A] py-4 pr-12 pl-12 text-base text-white placeholder:text-gray-500 focus:border-[#F59E0B]/50 focus:outline-none focus:ring-1 focus:ring-[#F59E0B]/50"
+              className="w-full rounded-xl border border-white/10 bg-white/5 py-4 pr-12 pl-12 text-base text-white placeholder:text-white/35 transition-all duration-300 focus:border-[#F59E0B]/50 focus:bg-white/[0.07] focus:outline-none focus:ring-[3px] focus:ring-[#F59E0B]/10"
             />
             {searchQuery && (
               <button
@@ -183,7 +183,7 @@ export default function MenuSection() {
             )}
           </div>
 
-          {/* Quick filters */}
+          {/* Quick filters — MEJORA 8 */}
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             {quickFilters.map((f) => (
               <button
@@ -191,10 +191,10 @@ export default function MenuSection() {
                 onClick={() =>
                   setActiveFilter(activeFilter === f.label ? null : f.label)
                 }
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
+                className={`whitespace-nowrap rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ${
                   activeFilter === f.label
-                    ? "border-[#F59E0B] bg-[#F59E0B]/10 text-[#F59E0B]"
-                    : "border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
+                    ? "border-[#F59E0B] bg-[#F59E0B]/15 text-[#F59E0B]"
+                    : "border-white/8 bg-white/[0.04] text-white/60 hover:border-[#F59E0B]/30 hover:bg-[#F59E0B]/10 hover:text-[#F59E0B]"
                 }`}
               >
                 {f.emoji} {f.label}
@@ -203,39 +203,40 @@ export default function MenuSection() {
           </div>
         </motion.div>
 
-        {/* Category tabs — visible but dimmed during search */}
-        <div className="relative mb-8">
-          <div
-            ref={tabsRef}
-            className={`scrollbar-hide flex justify-center gap-2 overflow-x-auto pb-2 transition-opacity ${
-              searchQuery ? "pointer-events-none opacity-40" : "opacity-100"
-            }`}
-          >
-            {menuCategories.map((cat) => (
-              <button
-                key={cat.id}
-                data-active={activeCategory === cat.id}
-                onClick={() => {
-                  setActiveCategory(cat.id);
-                  setActiveFilter(null);
-                }}
-                className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-medium transition-all ${
-                  activeCategory === cat.id
-                    ? "border-[#F59E0B] bg-[#F59E0B] text-black"
-                    : "border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
-                }`}
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {cat.emoji} {cat.name}
-              </button>
-            ))}
+        {/* Category tabs — BUG 3 & 4 fix: padding-left, scroll-padding, sticky */}
+        <div className="sticky top-16 z-[100] -mx-4 bg-[#0A0A0A] px-4 py-3 sm:top-20 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <div className="relative">
+            <div
+              ref={tabsRef}
+              className={`scrollbar-hide flex gap-2 overflow-x-auto pl-4 scroll-pl-4 pb-2 transition-opacity ${
+                searchQuery ? "pointer-events-none opacity-40" : "opacity-100"
+              }`}
+            >
+              {menuCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  data-active={activeCategory === cat.id}
+                  onClick={() => {
+                    setActiveCategory(cat.id);
+                    setActiveFilter(null);
+                  }}
+                  className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-medium transition-all ${
+                    activeCategory === cat.id
+                      ? "border-[#F59E0B] bg-[#F59E0B] text-black"
+                      : "border-white/10 text-gray-400 hover:border-white/20 hover:text-white"
+                  }`}
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {cat.emoji} {cat.name}
+                </button>
+              ))}
+            </div>
+            {/* Scroll affordance gradient — right only */}
+            <div className="pointer-events-none absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-[#0A0A0A] to-transparent" />
           </div>
-          {/* Scroll affordance gradients */}
-          <div className="pointer-events-none absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-[#0A0A0A] to-transparent" />
-          <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-[#0A0A0A] to-transparent" />
         </div>
 
-        {/* Items grid */}
+        {/* Items grid — MEJORA 2, 3, 4 */}
         <div ref={gridRef}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -244,7 +245,7 @@ export default function MenuSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.15 }}
-              className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3"
+              className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3"
             >
               {activeItems.length === 0 ? (
                 <div className="col-span-full py-12 text-center">
@@ -267,31 +268,31 @@ export default function MenuSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: i * 0.05 }}
                     onClick={() => setSelectedItem(item)}
-                    className={`group relative overflow-hidden rounded-lg border text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40 ${
+                    className={`group relative overflow-hidden rounded-lg border text-left transition-all duration-300 cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_40px_rgba(245,158,11,0.08)] ${
                       item.recommended
-                        ? "border-[#F59E0B]/30 hover:border-[#F59E0B]/60"
-                        : "border-white/5 hover:border-white/20"
-                    } bg-[#1A1A1A]`}
+                        ? "border-[#F59E0B]/30 hover:border-[#F59E0B]/50"
+                        : "border-white/[0.06] hover:border-[#F59E0B]/30"
+                    } bg-[#151515]`}
                   >
                     {/* Image */}
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.08]"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent" />
 
-                      {/* Badges */}
+                      {/* Badges — MEJORA 4 */}
                       <div className="absolute top-2 right-2 flex flex-col gap-1 sm:top-3 sm:right-3 sm:gap-1.5">
                         {item.recommended && (
-                          <span className="flex items-center gap-1 rounded-full bg-[#F59E0B]/90 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-black sm:text-xs">
+                          <span className="flex items-center gap-1 rounded bg-[#F59E0B]/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-[#080808] backdrop-blur-sm sm:px-3 sm:py-1.5 sm:text-xs">
                             <Star size={10} fill="currentColor" /> <span className="hidden sm:inline">Recomendado</span>
                           </span>
                         )}
                         {item.isNew && (
-                          <span className="flex items-center gap-1 rounded-full bg-[#DC2626]/90 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white sm:text-xs">
+                          <span className="flex items-center gap-1 rounded bg-[#DC2626]/90 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-white backdrop-blur-sm sm:px-3 sm:py-1.5 sm:text-xs">
                             <Sparkles size={10} /> Nuevo
                           </span>
                         )}
@@ -309,9 +310,10 @@ export default function MenuSection() {
                       <p className="mb-3 line-clamp-2 text-xs text-gray-500">
                         {item.description}
                       </p>
+                      {/* Price — MEJORA 3 */}
                       <div className="flex items-center justify-between">
                         <span
-                          className="text-base font-bold text-[#F59E0B] sm:text-lg"
+                          className="text-xl font-bold tracking-wide text-[#F59E0B] sm:text-[22px]"
                           style={{ fontFamily: "var(--font-display)" }}
                         >
                           $U {item.price.toLocaleString("es-UY")}

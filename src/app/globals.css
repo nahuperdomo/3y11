@@ -20,11 +20,6 @@
   --font-body: "DM Sans", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 html {
   scroll-behavior: smooth;
@@ -122,6 +117,17 @@ body::before {
 :focus-visible {
   outline: 2px solid #F59E0B;
   outline-offset: 2px;
+}
+
+/* WhatsApp button pulse — MEJORA 10 */
+.whatsapp-pulse {
+  animation: whatsapp-pulse 2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
 /* Animation for reduced motion */

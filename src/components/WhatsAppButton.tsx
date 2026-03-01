@@ -22,7 +22,7 @@ export default function WhatsAppButton() {
   const tooltipVisible = hovered || showTooltip;
 
   return (
-    <div className="fixed right-4 bottom-4 z-40 sm:right-6 sm:bottom-6">
+    <div className="fixed right-6 bottom-6 z-[999]">
       <AnimatePresence>
         {tooltipVisible && (
           <motion.div
@@ -36,30 +36,17 @@ export default function WhatsAppButton() {
           </motion.div>
         )}
       </AnimatePresence>
-      <motion.a
+      <a
         href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Quiero hacer un pedido")}`}
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        animate={{
-          boxShadow: [
-            "0 0 0 0 rgba(37, 211, 102, 0.4)",
-            "0 0 0 12px rgba(37, 211, 102, 0)",
-          ],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatType: "loop",
-        }}
+        className="whatsapp-pulse flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-transform duration-200 hover:scale-110"
         aria-label="Pedir por WhatsApp"
       >
         <MessageCircle size={28} fill="white" />
-      </motion.a>
+      </a>
     </div>
   );
 }

@@ -18,38 +18,38 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "CAFFE 3-11 | La Estación más Rock'n Roll del Planeta",
+  title: "Tresonce | La Mejor Estación de Servicio del Uruguay",
   description:
-    "Restaurante artesanal en la Estación ANCAP de San José, Uruguay. Burgers, chivitos, parrilla, cafetería y más. Donde la ruta, el rock y la gastronomía se encuentran.",
+    "La mejor estación de servicio del Uruguay. Burgers, chivitos, parrilla, cafetería y más. Ruta 3 Km. 92, San José. Pasión por los detalles.",
   keywords: [
-    "CAFFE 3-11",
+    "Tresonce",
     "restaurante San José Uruguay",
     "burgers artesanales",
     "chivitos uruguayos",
     "estación ANCAP",
-    "rock bar Uruguay",
+    "estación de servicio Uruguay",
   ],
   openGraph: {
-    title: "CAFFE 3-11 | La Estación más Rock'n Roll del Planeta",
+    title: "Tresonce | La Mejor Estación de Servicio del Uruguay",
     description:
-      "Restaurante artesanal en la Estación ANCAP de San José, Uruguay. Burgers, chivitos, parrilla, cafetería y más.",
+      "La mejor estación de servicio del Uruguay. Burgers, chivitos, parrilla, cafetería y más. Ruta 3 Km. 92, San José.",
     type: "website",
     locale: "es_UY",
-    siteName: "CAFFE 3-11",
+    siteName: "Tresonce",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "CAFFE 3-11 — La Estación más Rock'n Roll del Planeta",
+        alt: "Tresonce — La Mejor Estación de Servicio del Uruguay",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CAFFE 3-11 | La Estación más Rock'n Roll del Planeta",
+    title: "Tresonce | La Mejor Estación de Servicio del Uruguay",
     description:
-      "Donde la ruta, el rock y la gastronomía artesanal se encuentran.",
+      "Tenemos y sentimos pasión por los detalles. Ruta 3 Km. 92, San José.",
   },
 };
 

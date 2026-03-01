@@ -10,7 +10,7 @@ import {
   Wifi,
   ShoppingBag,
 } from "lucide-react";
-import { WHATSAPP_NUMBER, INSTAGRAM_URL, GOOGLE_MAPS_URL, GOOGLE_MAPS_EMBED_URL } from "@/lib/constants";
+import { WHATSAPP_NUMBER, PHONE_NUMBER, INSTAGRAM_URL, GOOGLE_MAPS_URL, GOOGLE_MAPS_EMBED_URL } from "@/lib/constants";
 
 const hours = [
   { days: "Lunes a Jueves", time: "8:00 - 23:00" },
@@ -66,7 +66,7 @@ export default function Location() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación de CAFFE 3-11 en Google Maps"
+              title="Ubicación de Tresonce en Google Maps"
               className="w-full"
             />
           </motion.div>
@@ -93,11 +93,9 @@ export default function Location() {
                 </h3>
               </div>
               <p className="text-gray-400">
-                Ruta 3 Km. 92,000
+                Ruta 3 Km. 92
                 <br />
-                Gral José G. Artigas 35
-                <br />
-                80000 San José de Mayo, Departamento de San José
+                San José, R.O.U.
               </p>
               <a
                 href={GOOGLE_MAPS_URL}
@@ -150,13 +148,20 @@ export default function Location() {
               </div>
               <div className="space-y-2">
                 <a
+                  href={`tel:${PHONE_NUMBER}`}
+                  className="flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
+                >
+                  <Phone size={14} />
+                  Tel: {PHONE_NUMBER}
+                </a>
+                <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-[#25D366]"
                 >
                   <Phone size={14} />
-                  WhatsApp: +598 99 123 456
+                  WhatsApp: 092 742 097
                 </a>
                 <a
                   href={INSTAGRAM_URL}

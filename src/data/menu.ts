@@ -67,7 +67,7 @@ const realCategories: MenuCategory[] = [
         description:
           "Doble hamburguesa de espinaca o coliflor, tomate, lechuga y cebolla colorada con salsa especial",
         price: 480,
-        image: `${UNSPLASH}/photo-1520072959219-c595e6cdc07a?w=600&h=400&fit=crop`,
+        image: `${UNSPLASH}/photo-1585238342024-78d387f4a707?w=600&h=400&fit=crop`,
         category: "burgers",
         tags: ["Vegetariano"],
         recommended: true,
@@ -227,7 +227,7 @@ const realCategories: MenuCategory[] = [
       },
       {
         id: "pizza-especial",
-        name: "Pizza Especial 3-11",
+        name: "Pizza Especial Tresonce",
         description:
           "Masa a la piedra, salsa, muzzarella, panceta, morrón, cebolla caramelizada y huevo",
         price: 520,
@@ -355,7 +355,7 @@ const realCategories: MenuCategory[] = [
         name: "Jugo de Naranja Natural",
         description: "Naranja recién exprimida, 100% natural",
         price: 160,
-        image: `${UNSPLASH}/photo-1613478223719-2ab802602d23?w=600&h=400&fit=crop`,
+        image: `${UNSPLASH}/photo-1622597467836-f3285f2131b8?w=600&h=400&fit=crop`,
         category: "bebidas",
         tags: ["Sin TACC"],
       },

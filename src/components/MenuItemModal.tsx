@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MessageCircle, Leaf, Wheat, Users, Flame, Salad, Minus, Plus } from "lucide-react";
+import { X, MessageCircle, Leaf, Wheat, Users, Flame, Salad, Minus, Plus, Star } from "lucide-react";
 import type { MenuItem } from "@/data/menu";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 
@@ -30,10 +30,8 @@ const tagColors: Record<string, string> = {
 export default function MenuItemModal({ item, onClose }: Props) {
   const [quantity, setQuantity] = useState(1);
 
-  // Reset quantity when a new item is opened
   const itemId = item?.id;
   useEffect(() => {
-    // Intentional: reset quantity for each new item opened
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setQuantity(1);
   }, [itemId]);
@@ -66,28 +64,23 @@ export default function MenuItemModal({ item, onClose }: Props) {
     <AnimatePresence>
       {item && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop — MEJORA 9 */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[1100] bg-black/80 backdrop-blur-sm"
             onClick={onClose}
           />
 
-          {/* Modal - bottom sheet on mobile, scale+fade centered on desktop */}
+          {/* Modal — bottom sheet on mobile, centered on desktop */}
           <motion.div
-            initial={{ opacity: 0, y: 100, scale: 1 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 100, scale: 1 }}
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-x-0 bottom-0 z-50 max-h-[90vh] overflow-y-auto rounded-t-2xl bg-[#1A1A1A] sm:inset-auto sm:top-1/2 sm:left-1/2 sm:max-h-[85vh] sm:w-full sm:max-w-lg sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-xl sm:[--initial-y:0px] sm:[--initial-scale:0.95]"
-            style={{
-              // Desktop: scale+fade instead of slide
-            }}
-            {...{
-              // Override animation for desktop via CSS media query handled by Tailwind
-            }}
+            className="fixed inset-x-0 bottom-0 z-[1100] max-h-[90vh] overflow-y-auto rounded-t-2xl bg-[#151515] sm:inset-auto sm:top-1/2 sm:left-1/2 sm:max-h-[85vh] sm:w-full sm:max-w-[560px] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl"
           >
             {/* Close button */}
             <button
@@ -99,17 +92,26 @@ export default function MenuItemModal({ item, onClose }: Props) {
             </button>
 
             {/* Image */}
-            <div className="relative aspect-[16/10] overflow-hidden sm:rounded-t-xl">
+            <div className="relative aspect-[16/10] overflow-hidden sm:rounded-t-2xl">
               <img
                 src={item.image}
                 alt={item.name}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent" />
             </div>
 
             {/* Content */}
             <div className="p-6">
+              {/* Recommended badge */}
+              {item.recommended && (
+                <div className="mb-3">
+                  <span className="inline-flex items-center gap-1.5 rounded bg-[#F59E0B]/90 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[#080808]">
+                    <Star size={12} fill="currentColor" /> Recomendado
+                  </span>
+                </div>
+              )}
+
               {/* Tags */}
               {item.tags && item.tags.length > 0 && (
                 <div className="mb-3 flex flex-wrap gap-2">
@@ -139,7 +141,7 @@ export default function MenuItemModal({ item, onClose }: Props) {
 
               {/* Price */}
               <p
-                className="mb-4 text-3xl font-bold text-[#F59E0B]"
+                className="mb-4 text-3xl font-bold tracking-wide text-[#F59E0B]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 $U {item.price.toLocaleString("es-UY")}
@@ -147,7 +149,7 @@ export default function MenuItemModal({ item, onClose }: Props) {
 
               {/* Pairs with */}
               {item.pairsWith && (
-                <div className="mb-6 rounded-lg border-l-2 border-l-[#F59E0B] border border-white/5 bg-[#0A0A0A] p-4">
+                <div className="mb-6 rounded-lg border border-white/5 border-l-2 border-l-[#F59E0B] bg-[#0A0A0A] p-4">
                   <p className="mb-1 text-xs font-bold uppercase tracking-wider text-[#F59E0B]">
                     Va perfecto con...
                   </p>
